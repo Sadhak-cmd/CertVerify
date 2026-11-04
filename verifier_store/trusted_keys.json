@@ -1,0 +1,14 @@
+{
+  "keys": {
+    "59f4c50e44c42eac266c6b3e4d337da1017727562db1ccaaf6328daaaa0bb8f3": {
+      "institution_id": 1,
+      "name": "ABC University",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAox7tpnMWqNNtagEVnFzy\nN8y8CJ3xZAMF606j8FPc5ZEVnJc14omDLSNal4fl6Tx1CcLqEf/pT3brJJGF+kva\njeBcAI5rvp/xjudkiCqKa0zYKg/dzY0KqOiCi8pSe2Y+koAKEXoAMERqQH+VNIEK\nLISL7a+mLk7BPunOq1q+TWjBIpyWKmd9jL9xzK3rquUpHzK6t8amgIsM5gZ7MYHX\n8U12YptlGL3bZ0PmJHr3v1KOd+tiBTkn5a0/DB4ZVqkVyzufrsSCt8xYG8QGQHUi\n+6Hi/yC61F3CeBnHtKvxm+8kAYDftaECiRdWyHq7nQFas+n/LynT7044l7ZzTbId\nEQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "8942783fd4952373e55198223ee8a2aa14d579cfa8b177741c60665361c0b3c4": {
+      "institution_id": 2,
+      "name": "National Business School",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx0HLofyYfY074E5ta9tu\nVGsdj48obsy1bRvBmf4VQ0BliAvjfY3GuU7DvypJSSjbxHuNwBlOp0XkfMK5xBbB\nRbRzh1jPSyH0qK5EKqGtykkbUrp1s6ab9aTezuR/TgRN0tfPqu4Rqj63jV6/0qLX\n3BWdCzdC0jgo3D9GXvlo0At/ZV4oXepYeh3wT3P8RMIDsknYvvqwueLd5mfJvQHx\nBj740yX8itWKaDzijyQsjni3FO7Ecy79kk1CRdpBVcU9HIVAO2C+97qc+tf3HYCh\nGQ8kdqa4h8696ByfNQNhUbv0RfiAahbAM6hf1vvr9ET0PLaQD7pcXFFWuOIUnUJV\nbQIDAQAB\n-----END PUBLIC KEY-----\n"
+    }
+  }
+}
