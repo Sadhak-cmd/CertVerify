@@ -54,45 +54,43 @@ LAYOUT = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ title }} | CertVerify</title>
-<style>
-  body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; background: #f4f5f7; color: #1d2433; }
-  nav { background: #1d2433; padding: 12px 24px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-  nav a { color: #cfd6e6; text-decoration: none; font-size: 15px; }
-  nav a:hover { color: #fff; }
-  nav .brand { color: #fff; font-weight: 700; margin-right: 12px; }
-  main { max-width: 820px; margin: 28px auto; padding: 0 20px; }
-  h1 { font-size: 24px; margin-bottom: 4px; }
-  p.sub { color: #5b6478; margin-top: 0; }
-  .card { background: #fff; border-radius: 10px; padding: 22px; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 20px; }
-  label { display: block; font-weight: 600; margin: 12px 0 4px; font-size: 14px; }
-  input, select, textarea { width: 100%; padding: 9px 10px; border: 1px solid #c4cad8; border-radius: 6px; font-size: 15px; box-sizing: border-box; }
-  button, .btn { background: #2f5bea; color: #fff; border: 0; padding: 10px 18px; border-radius: 6px; font-size: 15px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 16px; }
-  button.danger { background: #c62828; }
-  .banner { border-radius: 10px; padding: 18px 20px; margin-bottom: 18px; font-size: 17px; }
-  .banner b { font-size: 22px; display: block; margin-bottom: 4px; }
-  .valid   { background: #e3f6e8; border: 2px solid #2e9e4f; color: #14602c; }
-  .invalid { background: #fde7e7; border: 2px solid #c62828; color: #7a1414; }
-  .revoked { background: #fde7e7; border: 2px solid #c62828; color: #7a1414; }
-  .warn    { background: #fff6d6; border: 2px solid #d9a300; color: #6b5200; }
-  table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #e3e6ee; }
-  .pill { padding: 2px 9px; border-radius: 10px; font-size: 12px; font-weight: 700; }
-  .pill.ok { background: #e3f6e8; color: #14602c; }
-  .pill.bad { background: #fde7e7; color: #7a1414; }
-  .pill.none { background: #eceef4; color: #5b6478; }
-  img.qr { width: 220px; height: 220px; border: 1px solid #e3e6ee; border-radius: 6px; }
-  .muted { color: #5b6478; font-size: 13px; }
-</style></head><body>
-<nav>
-  <span class="brand">CertVerify</span>
-  <a href="/">Home</a>
-  <a href="/issuer">Issuer</a>
-  <a href="/issuer/revoke">Revoke</a>
-  <a href="/holder">Holder</a>
-  <a href="/verifier">Verifier</a>
-  <a href="/verifier/legacy">Legacy check (OCR)</a>
-</nav>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head><body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="rosette-band" aria-hidden="true"></div>
+  <div class="bar">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="1.1">
+          <ellipse cx="24" cy="24" rx="21" ry="8"/>
+          <ellipse cx="24" cy="24" rx="21" ry="8" transform="rotate(30 24 24)"/>
+          <ellipse cx="24" cy="24" rx="21" ry="8" transform="rotate(60 24 24)"/>
+          <ellipse cx="24" cy="24" rx="21" ry="8" transform="rotate(90 24 24)"/>
+          <ellipse cx="24" cy="24" rx="21" ry="8" transform="rotate(120 24 24)"/>
+          <ellipse cx="24" cy="24" rx="21" ry="8" transform="rotate(150 24 24)"/>
+        </g>
+        <circle cx="24" cy="24" r="12" fill="#fffdf7" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M18 24.5l4.2 4.2L30.5 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span><span class="brand-name">CertVerify</span></span>
+    </a>
+    {% set p = request.path %}
+    <nav class="site-nav" aria-label="Main">
+      <a href="/issuer"{% if p == '/issuer' %} aria-current="page"{% endif %}>Issuer</a>
+      <a href="/holder"{% if p.startswith('/holder') %} aria-current="page"{% endif %}>Holder</a>
+      <a href="/verifier"{% if p == '/verifier' or p == '/verifier/refresh' %} aria-current="page"{% endif %}>Verifier</a>
+      <a href="/verifier/legacy"{% if p.startswith('/verifier/legacy') %} aria-current="page"{% endif %}>Legacy check</a>
+      <a class="nav-aux" href="/issuer/revoke"{% if p.startswith('/issuer/revoke') %} aria-current="page"{% endif %}>Revoke</a>
+    </nav>
+  </div>
+</header>
+<span id="content" tabindex="-1"></span>
 <main>{{ body|safe }}</main>
+<footer class="site-footer"><div class="inner">
+  <span>CertVerify</span>
+  <span>Signatures are checked locally against pinned institution keys and a signed revocation list.</span>
+</div></footer>
 </body></html>"""
 
 
@@ -201,12 +199,32 @@ def _revocation_pill(cert_id):
 HOME_TPL = """
 <h1>Academic certificate verification</h1>
 <p class="sub">Digitally signed credentials and legacy paper-certificate checks, with no per-certificate lookup.</p>
-<div class="card">
-  <p><a href="/issuer">1. Issuer</a> - issue and sign a new certificate</p>
-  <p><a href="/issuer/revoke">2. Revoke</a> - revoke a certificate (hash-chained log)</p>
-  <p><a href="/holder">3. Holder wallet</a> - download your credential and a minimal shareable proof (QR) by roll number</p>
-  <p><a href="/verifier">4. Verifier</a> - verify a credential locally: no database, no per-certificate lookup</p>
-  <p><a href="/verifier/legacy">5. Legacy check (OCR)</a> - photograph or upload a paper certificate and match it against institution records</p>
+<div class="tiles">
+  <a class="tile" href="/issuer">
+    <span class="tile-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M7 8h6M7 11h3"/><circle cx="16.5" cy="12" r="2"/><path d="M15.5 13.8L15 20l1.5-1 1.5 1-.5-6.2"/></svg></span><span class="tile-go" aria-hidden="true">&rarr;</span>
+    <span class="tile-body"><span class="tile-title">Issuer</span>
+      <span class="tile-desc">Issue and sign a new certificate</span></span>
+  </a>
+  <a class="tile" href="/issuer/revoke">
+    <span class="tile-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M7 9h10M7 13h6"/><path d="M4 21L20 3"/></svg></span><span class="tile-go" aria-hidden="true">&rarr;</span>
+    <span class="tile-body"><span class="tile-title">Revoke</span>
+      <span class="tile-desc">Revoke a certificate (hash-chained log)</span></span>
+  </a>
+  <a class="tile" href="/holder">
+    <span class="tile-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h12v3"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 13.5h2"/></svg></span><span class="tile-go" aria-hidden="true">&rarr;</span>
+    <span class="tile-body"><span class="tile-title">Holder wallet</span>
+      <span class="tile-desc">Download your credential and a minimal shareable proof (QR) by roll number</span></span>
+  </a>
+  <a class="tile" href="/verifier">
+    <span class="tile-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><span class="tile-go" aria-hidden="true">&rarr;</span>
+    <span class="tile-body"><span class="tile-title">Verifier</span>
+      <span class="tile-desc">Verify a credential locally: no database, no per-certificate lookup</span></span>
+  </a>
+  <a class="tile" href="/verifier/legacy">
+    <span class="tile-num" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 15h6M9 18h4"/></svg></span><span class="tile-go" aria-hidden="true">&rarr;</span>
+    <span class="tile-body"><span class="tile-title">Legacy check (OCR)</span>
+      <span class="tile-desc">Photograph or upload a paper certificate and match it against institution records</span></span>
+  </a>
 </div>
 """
 

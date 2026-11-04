@@ -3,10 +3,10 @@
     "version": 1,
     "institution_id": 1,
     "key_id": "59f4c50e44c42eac266c6b3e4d337da1017727562db1ccaaf6328daaaa0bb8f3",
-    "issued_at": "2026-11-04T04:08:35Z",
-    "valid_until": "2026-11-05T04:08:35Z",
-    "ledger_head": "e3c65601e48a51776af52b5fa09d90f3b2dc56e74cfd38947f9b236dfa759e93",
-    "ledger_count": 9,
+    "issued_at": "2026-11-04T05:35:47Z",
+    "valid_until": "2026-11-05T05:35:47Z",
+    "ledger_head": "be5d1e3d2ee0ec3af921f84e5847a1ff913ccb78b1119d2309c4e35d5b1f09e2",
+    "ledger_count": 11,
     "revocations": [
       {
         "cert_id": 7,
@@ -55,8 +55,20 @@
         "revoked_at": "2026-11-04 09:38:35",
         "revocation_hash": "e3c65601e48a51776af52b5fa09d90f3b2dc56e74cfd38947f9b236dfa759e93",
         "prev_hash": "b1d67e1b4aabab3ddce9b27d1b9fead858f5af59f9cfd9f80e1dcd7753f6288f"
+      },
+      {
+        "cert_id": 26,
+        "revoked_at": "2026-11-04 11:05:47",
+        "revocation_hash": "72cce3f117def7e92edf705664579c4fbbf66e5ef4d8f656d09910f3644f4dd6",
+        "prev_hash": "e3c65601e48a51776af52b5fa09d90f3b2dc56e74cfd38947f9b236dfa759e93"
+      },
+      {
+        "cert_id": 27,
+        "revoked_at": "2026-11-04 11:05:47",
+        "revocation_hash": "be5d1e3d2ee0ec3af921f84e5847a1ff913ccb78b1119d2309c4e35d5b1f09e2",
+        "prev_hash": "72cce3f117def7e92edf705664579c4fbbf66e5ef4d8f656d09910f3644f4dd6"
       }
     ]
   },
-  "signature": "DYiE4u/W5kZrZMHkv9bRPiVteUrlL8yzLxeq4ReRShVdYqDMfPVNRSQbjOhBdU2+h2IlaQKxnkf4u+jf1uegj2Id/OmwQGt3Y0GkJX0PeqT6nW4SdgpmwAVPj7Ls5r7SUTIkGrSWsHNxqN2EvytCSxrjFzk9CecuNuUSWLlpfbfsiE9/AX3+CXW1wF34xsZBsSb2reqkTIANqlZMwdNenRtRimkEHqphOnWtYBi5ZPZuRBPolwtv+N1ck94onIBOgHNEh2ljfZcXkyJ+9lg3lmGOYk+RjZoiqutz9DK2oAqgSIzI8n+ax35EFSNHW2v3EE8xLJBv31GdOvfjN0B77w=="
+  "signature": "ZW3vSyLkgftJUZkBh6HYbOgCwiKZLkF55CcCepdi1KFrCgbtUCDkz+wKslwWfv+eq1IWG/xIUhRVpgG5rMJlNHON6QBedWt52bUlZdKJD0799u2SEgEpZmMClSvfTRBmGlAbd3jBTA91LWVKzqj/NHF7EfPF3i4oW+529e4yTagtnfvA8JXJyGpsSL5nLO8MEhasrJPIsHvLSHc5puIcHNsm4aSG0sEJXFZNTxOQdbZoOIyvbpaXhdQoz+n+PaYuEJGnqA0d02wQdjjl9jisXXpqGUZQRwhJD05chKxbmfDnpXS/Uo2lTEiuyedLHeaeta0WoBrH8diB3vHjtbmJxg=="
 }

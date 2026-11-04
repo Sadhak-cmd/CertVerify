@@ -1,0 +1,901 @@
+/* ==========================================================================
+   CertVerify  -  style.css
+   Plain CSS. No frameworks, no CDN, no web fonts: works fully offline.
+
+   Visual idea: a printed certificate / notarial document.
+   Warm paper, ink-dark type, serif display headings, double-rule frames,
+   a guilloche (security-print) rosette and border band, one petrol accent.
+   Status colours (green / red / amber) are reserved for results only and
+   are always paired with an icon shape and a text label.
+   ========================================================================== */
+
+:root {
+  --paper: #f3efe4;
+  --paper-deep: #e9e3d2;
+  --card: #fffdf7;
+  --ink: #14202b;
+  --ink-soft: #44505e;
+  /* 7:1 on paper */
+  --rule: #c9c0aa;
+  --rule-strong: #8c846f;
+
+  --accent: #0b5560;
+  /* petrol: the only brand colour */
+  --accent-deep: #073c44;
+  --accent-tint: #d9eaeb;
+
+  --ok: #1f6f3f;
+  --ok-bg: #e6f3e9;
+  --ok-ink: #0e3a21;
+  --bad: #a3201f;
+  --bad-bg: #fbe9e5;
+  --bad-ink: #561110;
+  --warn: #9a6200;
+  --warn-bg: #fff2cc;
+  --warn-ink: #4a2f00;
+
+  --wrap: 60rem;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 112.5%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 18px base: readable on a projector */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--sans);
+  line-height: 1.55;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(20, 32, 43, .09) 1px, transparent 1.3px);
+  background-size: 22px 22px;
+}
+
+main {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 3rem;
+  flex: 1 0 auto;
+}
+
+a {
+  color: var(--accent-deep);
+  text-decoration-thickness: .08em;
+  text-underline-offset: .2em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 20;
+  padding: .7rem 1.1rem;
+  background: var(--ink);
+  color: #fff;
+}
+
+.skip:focus {
+  left: 0;
+}
+
+/* ---------- Header, brand, nav ---------- */
+
+.site-header {
+  background: var(--card);
+  border-bottom: 3px double var(--ink);
+}
+
+/* Interlocking arcs: a banknote-style border band, drawn in pure CSS. */
+.rosette-band {
+  height: 12px;
+  background-color: var(--accent-tint);
+  background-image:
+    radial-gradient(circle 12px at 50% 100%, transparent 8.5px, var(--accent) 9px, var(--accent) 10.5px, transparent 11px),
+    radial-gradient(circle 12px at 50% 0, transparent 8.5px, var(--accent) 9px, var(--accent) 10.5px, transparent 11px);
+  background-size: 24px 12px;
+  background-position: 0 0, 12px 0;
+  border-bottom: 1px solid var(--accent);
+}
+
+.bar {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: .8rem 1.25rem .4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--ink);
+}
+
+.brand svg {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  color: var(--accent);
+}
+
+.brand-name {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .15rem;
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 .95rem;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.site-nav a:hover {
+  background: var(--accent-tint);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--accent-deep);
+  border-bottom-color: var(--accent);
+}
+
+/* Revoke sits apart: it is an issuer action, not a main section. */
+.site-nav a.nav-aux {
+  min-height: 36px;
+  margin-left: .6rem;
+  padding: 0 .8rem;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+}
+
+.site-nav a.nav-aux[aria-current="page"] {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  margin-top: auto;
+  background: var(--card);
+  border-top: 3px double var(--ink);
+  color: var(--ink-soft);
+  font-size: .82rem;
+}
+
+.site-footer .inner {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .3rem 2rem;
+}
+
+/* ---------- Page headings ---------- */
+
+h1 {
+  margin: 0 0 .4rem;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 4.5vw, 2.7rem);
+  line-height: 1.1;
+}
+
+p.sub {
+  margin: 0 0 1.75rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+h1+p.sub {
+  padding-bottom: 1.1rem;
+  border-bottom: 3px double var(--ink);
+}
+
+/* ---------- Cards: a document with a printed inner frame ---------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  padding: 1.6rem;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 0 5px var(--card), inset 0 0 0 6px var(--rule);
+}
+
+.card>p {
+  margin: .9rem 0;
+}
+
+.card>b:first-child {
+  display: block;
+  margin-bottom: .7rem;
+  padding-bottom: .55rem;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.card form {
+  max-width: 40rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 1.2rem 0;
+}
+
+.muted {
+  color: var(--ink-soft);
+  font-size: .9rem;
+}
+
+/* ---------- Forms ---------- */
+
+form {
+  margin: 0;
+}
+
+label {
+  display: block;
+  margin: 1.15rem 0 .35rem;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+form>label:first-child {
+  margin-top: 0;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: .65rem .8rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background-color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--accent);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2314202b' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .9rem center;
+  background-size: .8rem;
+}
+
+input[type="file"] {
+  height: auto;
+  padding: .9rem;
+  border-style: dashed;
+  background-color: var(--paper);
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  margin: 0 1rem 0 0;
+  padding: .55rem 1.1rem;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--accent-deep);
+}
+
+/* ---------- Buttons ---------- */
+
+button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 1.25rem;
+  margin-right: .5rem;
+  padding: .6rem 1.4rem;
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-bottom: 4px solid var(--accent-deep);
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--accent-deep);
+  color: #fff;
+}
+
+button:active,
+.btn:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+button.danger {
+  background: var(--bad);
+  border-bottom-color: #6e1413;
+}
+
+button.danger:hover {
+  background: #7f1817;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* ---------- Tables ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+
+th,
+td {
+  padding: .7rem .6rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+  overflow-wrap: break-word;
+}
+
+th {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+thead th {
+  border-bottom: 2px solid var(--ink);
+}
+
+tr:last-child>th,
+tr:last-child>td {
+  border-bottom: 0;
+}
+
+/* ---------- Fingerprints, hashes, code: monospace that always wraps ---------- */
+
+code,
+.mono {
+  font-family: var(--mono);
+  font-size: .86em;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+code {
+  padding: .1em .35em;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+/* The current templates set font-family inline on the fingerprint cell; override it. */
+td[style*="monospace"] {
+  font-family: var(--mono) !important;
+  font-size: .82rem;
+  word-break: break-all;
+}
+
+/* ---------- Status pills (glyph + text, never colour alone) ---------- */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .35em;
+  padding: .08rem .55rem;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+}
+
+.pill.ok {
+  color: var(--ok-ink);
+  background: var(--ok-bg);
+  border-color: var(--ok);
+}
+
+.pill.bad {
+  color: var(--bad-ink);
+  background: var(--bad-bg);
+  border-color: var(--bad);
+}
+
+.pill.none {
+  color: var(--ink-soft);
+  background: var(--paper-deep);
+  border-color: var(--rule-strong);
+}
+
+.pill.ok::before {
+  content: "\2713";
+}
+
+.pill.bad::before {
+  content: "\2715";
+}
+
+.pill.none::before {
+  content: "\2013";
+}
+
+/* ---------- QR codes ---------- */
+
+img.qr {
+  display: block;
+  width: 240px;
+  height: 240px;
+  max-width: 100%;
+  margin: 1rem 0 .6rem;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--rule);
+  outline-offset: 4px;
+  image-rendering: pixelated;
+}
+
+/* ==========================================================================
+   Result banners
+   Each state has: a colour, a distinct icon SHAPE, a background texture and a
+   text headline, so it reads without relying on colour.
+     valid    circle + tick        (VALID, VERIFIED, success messages)
+     revoked  circle + slash       (REVOKED)
+     invalid  octagon + cross      (INVALID, UNTRUSTED KEY, FORGERY FLAG, errors)
+     warn     triangle + "!"       (UNCONFIRMED, UNKNOWN, UNREADABLE, notices)
+   ========================================================================== */
+
+.banner {
+  --c: var(--ink);
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  column-gap: 1.25rem;
+  row-gap: .3rem;
+  align-items: start;
+  margin: .4rem 6px 2.1rem;
+  padding: 1.4rem 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  border: 3px solid var(--c);
+  outline: 1px solid var(--c);
+  outline-offset: 4px;
+  border-radius: 2px;
+  color: var(--ink);
+  background-color: var(--card);
+  overflow-wrap: anywhere;
+}
+
+.banner::before {
+  content: "";
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 64px;
+  height: 64px;
+  background: var(--icon, none) center / contain no-repeat;
+}
+
+.banner>* {
+  grid-column: 2;
+}
+
+.banner b {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3.4vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: .02em;
+  line-height: 1.15;
+}
+
+.banner.valid {
+  --c: var(--ok);
+  color: var(--ok-ink);
+  background-color: var(--ok-bg);
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231f6f3f'/%3E%3Cpath d='M17 33l10 10 20-23' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.banner.revoked {
+  --c: var(--bad);
+  color: var(--bad-ink);
+  background-color: var(--bad-bg);
+  background-image: repeating-linear-gradient(135deg, transparent 0 14px, rgba(163, 32, 31, .07) 14px 16px);
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23a3201f'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='white' stroke-width='6'/%3E%3Cpath d='M21 43L43 21' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.banner.invalid {
+  --c: var(--bad);
+  color: var(--bad-ink);
+  background-color: var(--bad-bg);
+  background-image: repeating-linear-gradient(135deg, transparent 0 14px, rgba(163, 32, 31, .07) 14px 16px);
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='21,3 43,3 61,21 61,43 43,61 21,61 3,43 3,21' fill='%23a3201f'/%3E%3Cpath d='M22 22l20 20M42 22L22 42' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.banner.warn {
+  --c: var(--warn);
+  color: var(--warn-ink);
+  background-color: var(--warn-bg);
+  background-image: radial-gradient(rgba(154, 98, 0, .18) 1px, transparent 1.4px);
+  background-size: 10px 10px;
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='32,5 61,57 3,57' fill='%23f2a900' stroke='%234a2f00' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M32 25v17' stroke='%234a2f00' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='49' r='3.6' fill='%234a2f00'/%3E%3C/svg%3E");
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 640px) {
+  main {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .bar {
+    padding: .7rem 1rem .3rem;
+  }
+
+  .brand svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-name {
+    font-size: 1.45rem;
+  }
+
+  .site-nav {
+    width: 100%;
+  }
+
+  .site-nav a {
+    padding: 0 .7rem;
+  }
+
+  .site-nav a.nav-aux {
+    margin-left: auto;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .banner {
+    grid-template-columns: 48px minmax(0, 1fr);
+    column-gap: .9rem;
+    padding: 1.1rem;
+  }
+
+  .banner::before {
+    width: 48px;
+    height: 48px;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .btn+.btn {
+    margin-top: .6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media print {
+
+  .site-header,
+  .site-footer,
+  .skip {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+}
+
+/* ==========================================================================
+   Home tiles: five slabs. Description appears on hover / keyboard focus.
+   3D: each tile is a thick card (stacked edge shadows) that tilts and lifts
+   toward the viewer on hover, with its number stamp floating above it.
+   ========================================================================== */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin: .5rem 0 2rem;
+}
+
+.tile {
+  grid-column: span 2;
+}
+
+.tile:nth-child(n+4) {
+  grid-column: span 3;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 12.5rem;
+  padding: 1.5rem 1.4rem 1.3rem;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  transform-style: preserve-3d;
+  transform: perspective(900px) translate3d(0, 0, 0) rotateX(0) rotateY(0);
+  box-shadow:
+    inset 0 0 0 5px var(--card), inset 0 0 0 6px var(--rule),
+    1px 1px 0 var(--accent-deep), 2px 2px 0 var(--accent-deep),
+    3px 3px 0 var(--accent-deep), 4px 4px 0 var(--accent-deep),
+    6px 8px 14px rgba(20, 32, 43, .18);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+.tile:hover,
+.tile:focus-visible {
+  color: var(--ink);
+  transform: perspective(900px) translate3d(-4px, -6px, 0) rotateX(5deg) rotateY(-6deg);
+  box-shadow:
+    inset 0 0 0 5px var(--card), inset 0 0 0 6px var(--accent),
+    1px 1px 0 var(--accent-deep), 2px 2px 0 var(--accent-deep),
+    3px 3px 0 var(--accent-deep), 4px 4px 0 var(--accent-deep),
+    5px 5px 0 var(--accent-deep), 6px 6px 0 var(--accent-deep),
+    7px 7px 0 var(--accent-deep), 8px 8px 0 var(--accent-deep),
+    14px 18px 26px rgba(20, 32, 43, .28);
+}
+
+.tile:active {
+  transform: perspective(900px) translate3d(0, 0, 0);
+}
+
+.tile-num {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  color: var(--accent-deep);
+  background: var(--accent-tint);
+  border: 2px solid var(--accent-deep);
+  border-radius: 50%;
+  transition: transform .28s ease, background-color .28s ease, color .28s ease;
+}
+
+.tile-num svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.tile:hover .tile-num,
+.tile:focus-visible .tile-num {
+  transform: translateZ(34px);
+  color: #fff;
+  background: var(--accent);
+}
+
+.tile-go {
+  position: absolute;
+  top: 1.3rem;
+  right: 1.4rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  transition: transform .28s ease, color .28s ease;
+}
+
+.tile:hover .tile-go,
+.tile:focus-visible .tile-go {
+  transform: translate3d(5px, 0, 24px);
+  color: var(--accent);
+}
+
+.tile-body {
+  display: block;
+}
+
+.tile-title {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.tile-desc {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  font-size: .95rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  transition: max-height .3s ease, opacity .25s ease, margin-top .3s ease;
+}
+
+.tile:hover .tile-desc,
+.tile:focus-visible .tile-desc {
+  max-height: 7rem;
+  opacity: 1;
+  margin-top: .55rem;
+}
+
+/* Touch screens have no hover: always show the description. */
+@media (hover: none) {
+  .tile-desc {
+    max-height: none;
+    opacity: 1;
+    margin-top: .55rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+
+  .tile,
+  .tile:nth-child(n+4) {
+    grid-column: span 1;
+  }
+
+  .tile:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tile,
+  .tile:nth-child(n+4),
+  .tile:last-child {
+    grid-column: span 1;
+  }
+
+  .tile {
+    min-height: 9.5rem;
+  }
+}
+
+/* ---------- A little 3D elsewhere ---------- */
+
+/* Cards read as thin paper slabs. */
+.card {
+  box-shadow:
+    inset 0 0 0 5px var(--card), inset 0 0 0 6px var(--rule),
+    1px 1px 0 var(--rule-strong), 2px 2px 0 var(--rule-strong), 3px 3px 0 var(--rule-strong),
+    5px 7px 12px rgba(20, 32, 43, .10);
+}
+
+/* The header seal flips like a coin when you hover the brand. */
+.brand svg {
+  transition: transform .8s ease;
+}
+
+.brand:hover svg {
+  transform: perspective(240px) rotateY(360deg);
+}

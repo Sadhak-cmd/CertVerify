@@ -1,0 +1,26 @@
+{
+  "snapshot": {
+    "version": 1,
+    "institution_id": 7,
+    "key_id": "45891bcc51eac4f4e90314c2c781aaf12a0a3a4c80820c0b357fde4fe115e046",
+    "issued_at": "2026-11-04T05:36:24Z",
+    "valid_until": "2026-11-05T05:36:24Z",
+    "ledger_head": "a0073ab08e1d671cd3f8aed0c0f6f5b3ef88880479730d1d9dc872de9bd0147b",
+    "ledger_count": 23,
+    "revocations": [
+      {
+        "cert_id": 326,
+        "revoked_at": "2026-11-04 11:06:24",
+        "revocation_hash": "36cb209dc375f5b099513842d45d653961c9b7d0484819c9cf137e5c7fc6462e",
+        "prev_hash": "5a201a914bc6abc3dcb4ba6a4668aea8b89c37851b3e944a3d812210f30574a5"
+      },
+      {
+        "cert_id": 327,
+        "revoked_at": "2026-11-04 11:06:24",
+        "revocation_hash": "a0073ab08e1d671cd3f8aed0c0f6f5b3ef88880479730d1d9dc872de9bd0147b",
+        "prev_hash": "36cb209dc375f5b099513842d45d653961c9b7d0484819c9cf137e5c7fc6462e"
+      }
+    ]
+  },
+  "signature": "k4RJfYKL0K6Xe0+f5sMItWHPNUW4Hrv7ffmU4ojbPguVT/ajkJTTa5atXA1WFdhaV9s2CDGcQq5/FrkybCM8EuQLBWdPB34mctZzJaZfizWUQLs7/S1BiK+REOpfeICOB7eKmxu+hgSp3K+En3mEnDY1+gnU+IFVlr1cRZe2gOTDN8t2Onj6HzApk9eoXg/UgFBB6UyylW6lldJ7JelEwDYAiPykesER7c20zc+rInZgde+lgpGx1E+snIfj87ZGx3ewzSVhKgJ/exFMGFkX5GVdfRqPXeLX5IfBdZN2I+r0puovv3WOcPVzV3IMo6W0JNkseBO4kb3jT8fiKZ92OQ=="
+}

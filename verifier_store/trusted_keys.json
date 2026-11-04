@@ -9,6 +9,46 @@
       "institution_id": 2,
       "name": "National Business School",
       "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx0HLofyYfY074E5ta9tu\nVGsdj48obsy1bRvBmf4VQ0BliAvjfY3GuU7DvypJSSjbxHuNwBlOp0XkfMK5xBbB\nRbRzh1jPSyH0qK5EKqGtykkbUrp1s6ab9aTezuR/TgRN0tfPqu4Rqj63jV6/0qLX\n3BWdCzdC0jgo3D9GXvlo0At/ZV4oXepYeh3wT3P8RMIDsknYvvqwueLd5mfJvQHx\nBj740yX8itWKaDzijyQsjni3FO7Ecy79kk1CRdpBVcU9HIVAO2C+97qc+tf3HYCh\nGQ8kdqa4h8696ByfNQNhUbv0RfiAahbAM6hf1vvr9ET0PLaQD7pcXFFWuOIUnUJV\nbQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "fa8c0fd0bc465b33c85c35cc296ab7aab33c4f6f39aa3a91dc01294b6e6d9881": {
+      "institution_id": 3,
+      "name": "Western Institute of Technology",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsE+ZaeZNboeT5B+TL+Ar\nBqV8CpVzwp2zv2uIYWqTh8Sk30UlsJLWTGjtwWU7qY1h+hOT6vRRBsb4l+HMc6Aj\nbn+mwLK1YF4b44mTmZr9vQXTL7WlSJ4ffGn5/YoTPHLdfUQ8iD9d1OPAVNnl0EKy\nBQI+gS4nXszFLE0efmZeSocfxgUrsfISfmZAxVuIB+9ysMOWvE9zT/5RI3/ji1M0\nfa0H8um+/XKNigLfDTE2GTlPKkGOD3c/yX2eYmyFMwt1bacD9wLWzSK2Y+bRvEpH\nbvTc9Gd35cYtpToFcK6z62WsfW2DZ+vjg9aasbAiyeRQ/7hzivIGwWZGmUkVoYSt\nPQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "a932c0d34b651ab82e52b8d8a29dcd68af1b951deb5b97d49380c2a89c9f15bb": {
+      "institution_id": 4,
+      "name": "Lakeshore College of Arts and Science",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5ANeDSrWB9NFRZMZZjVA\n7ZF6NHMglPvs0XBpJmRGr5tPIajcbv9xMCowe/EysV2vead7s68FYjYyG33TwPUU\nbC5c0i2woLD7mE6szfr4Eq45zjASPdjyTLIJeH8ACUFm2oiCtErlinANN5bUXj/V\n/SejXcYY17VV1LZjX9WMZErWdzJ3JFgxznXeZI52pD15NbqJnq98inyVVk9fKRg9\nmXCDEhsPutSPZRhl3YEFEs+jowclNbed7rQ2BQXpjxdP+Rl5CTzusFRqFkylXa9z\nfzLWGS2DewqjWQGbXMszvd3ZY3aenw+BFSI5ZZ8Lr+YkV3EdPORJmGkeDO7GrvYe\nPQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "cf59ea951873ebb7a4ec0bfc00ce1a2e1813d45fc69042898931509c25319096": {
+      "institution_id": 5,
+      "name": "Meridian Institute of Engineering",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3eIgUWaLbiW3Svhmdqyp\nFG2UjB7bo5R+QsmoMaDdGeY0N0Xvb5F+Xus3W1NdicieQsULqYxjZyz6k2LE8vyr\nRk734WpSIjoppcALbt0VS12dH6x1tQqnMKNKGeOi+fqzZMHZTYNZA0yfOV0v23pI\n/ds39UFCiJAfqK8pxmilNUtLDKyoqWKNfLjZiCmJJoQdFSZmzs6ryhNuj2FnEmYt\nEdWe6uVLFFB62UThqBMkGsaCjY9M9Em9CU7slZ2Y1Z4yCQFUefpipT5es6nweDts\ncCLgi09+7AhYEJZ5TsszZswKEhpUkMb6e7Zl1iLz14ceO7zzfPGeDp6XGJB8G97I\n3QIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "5adf792c3307e2beea60c92251367b156e92988f24f3db5ad798c89b7ccc6e30": {
+      "institution_id": 6,
+      "name": "Sahyadri Medical Academy",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3GTuq5ZRuPvos/40gYCs\nhOdXL87MEuGDUiO+ubAFjS5RcHhDM9Csk6UblFWxU0GZ5n2zBrISiBJ9gsc2rHa4\n66CIZ04/QbXopJqJA6kPFZoEWphQyL77CNwbS9OgBphm7McT36PrHs4WyzwSMC8b\nxteUHeJFxUOOldKFdK4bVBJvy/Ql5tsw1iK70bK8hGIaX2998e3DFPqOYlvh0fsq\nOSOt0S47bGMPak4mfry1p4Q75la3Ylai5absmaoLTmpV+4mGpNsGbEf4NNvdTcKq\nLQcI9Znq2tzfmFnRi9M1xa3r3l8MHBxggycEN93Uk8kvAEAhs6hv00T/AAFRLV3S\nHQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "45891bcc51eac4f4e90314c2c781aaf12a0a3a4c80820c0b357fde4fe115e046": {
+      "institution_id": 7,
+      "name": "Deccan Law School",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApuvtLV4vSqsMeE+H0u3P\ngr6TCTm/uqFsmaZAFlYcZI7P6+T9lA68e3a3iGajzP79iiNTRFJ5SQvwr2tTEfen\nJoNKg1rgtxrqcce9/3bY7iKy6aBsUXY5+6//bHTkEBebYWQt2rD/rKzXRGaaF4P7\n/bQShz2kL1ntidk+1kp0XLofEGZXuRHdDYfShiItw8IyFj9Dt2ErE7t++fi6WPvb\nk34UypTzUXXO08mZaem47GrR8J7fUF/pNjEWPJAyOSCoeDjNKXb6Si5RypmKUCF+\nr6+W1iUnlgWulhZmJs1crVxTmuu/ylgFIldFwDUOQj5qGHuhadJ7k966PMV0mSfq\nxwIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "795078b513af7faf95db99b634b5cd6f6cc3b2c02341e5b0e58a7375177dd589": {
+      "institution_id": 8,
+      "name": "Horizon Institute of Aerospace Studies",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6N+RNi8XBG9qZKbEYssC\nXKXIcy+S9JeNGdva+AXBUgtOoke1DZteOYrhe7lG1Gj3/BEeRUNLGuEmrVH3arqH\nc+QcXzNQqhpx2baHxxDsEEU16PFV/O8CyEiZY48HN0Mhgrec+Y7+Oi4+EHUnsPaD\njPRQcT82RQItC5rDQEO3yFR7eeLzeSRY0S8n8b+jpplCvXSJJeHePKUXXxwC7E8o\nTtkQd1QCFxcZYMvDqShdc46I5pwaBtaDqSiJrB8Sdo9h5pCK/WMzxZMtBbY/a4Wh\ng3JskY6tA4zvAxsAEME4tpl2N3rsM0ItHXHR/273c3tWBH6SJvQ290jbR0jeyW8/\nzQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "ef7f0f2eb7d3f997087db67c57caf8d4cc3b457ff7e5c7414bf53bca25ee189c": {
+      "institution_id": 9,
+      "name": "Riverbend Polytechnic",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv7WgBYuMSd6aftBalK5/\niSuEMy3BWhJJZ8aqRZITKifRSMWzHAd+Q0G4MrUkusweLTakQOiD7GPaIQeOnOFn\nmTIVSbtv6bfl4W6EQpMHjf8jRj9hzAF7n3r3X62VL1IIj9tNadik6nBvK2xGSL23\nlWOMhOo3yj4RdEbHv1F7JoNgoMGCIMGWIY2SoskYeqsanbxQ/aFWwcLbIBYmAoem\nQzZIKzeS7XDPoWMkBSwUzwnDU5vrURrQrO/b0NlyWEONTKTvhlE2PQRktiyLTvXt\n/RuLoBgrxU8pbWhi1jTUCQNhVQboxK8DUI/RMsegho3QyspE/St6Kdy1s/uxEKTj\nMwIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    "840caade0c50b5387bc32419c2395c78dcda4e722d24b60d1d694074ab868b06": {
+      "institution_id": 10,
+      "name": "Pinnacle School of Management",
+      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArCBOYw99FrVPL+N1UZBH\nclJjeL0wTNLp/ZZDpUVZZuS/yOt0LGxzGWWrI4L0Pc3t2W7+l+X6fISmvEBuv1Kh\nNrK4zOd8DJKwoEE380eNHVvAgSIltT3tsZz4V/BTE10wQtCbG5aKU3OTo3kbMJX+\nREzeZYwROgxhtRaXPVkUbGr52Nfs0G0hxyswzlzRt+/gZ1lQb1SttNcKhTnxL/Lu\naAVLm3slgmmDv83Ffv1yCyK116dPUhj6G0ORWj23ClKa2YePxh4Iikrt+zCGbizU\nErihCWrarIYKqRhMCkT5UCB0gZttwsA1q0SzCgnAGYAbNAz8vr1awS87Ap00l5w2\nywIDAQAB\n-----END PUBLIC KEY-----\n"
     }
   }
 }
